@@ -1,10 +1,10 @@
-package com.dase.gestorcomentarios;
+package com.codmind.swaggerapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApplicationTests {
+class SwaggerApiApplicationTests {
 
 	@Test
 	void contextLoads() {

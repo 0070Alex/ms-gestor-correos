@@ -1,12 +1,9 @@
-package com.dase.gestorcomentarios.config;
+package com.dase.gestorcorreos.config;
 
 import java.util.Collections;
-import java.util.Properties;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -24,7 +21,7 @@ public class SwaggerConfig {
     public Docket apiDocket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.dase.gestorcomentarios.controllers"))
+                .apis(RequestHandlerSelectors.basePackage("com.dase.gestorcorreos.controllers"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(getApiInfo());
@@ -42,6 +39,5 @@ public class SwaggerConfig {
                 Collections.emptyList()
         );
     }
-
-   
+ 
 }
