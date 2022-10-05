@@ -5,6 +5,7 @@
  */
 package com.dase.gestorcorreos.service.impl;
 
+import com.dase.gestorcorreos.dto.emailDto;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,32 +24,40 @@ public class EmailService {
     private JavaMailSender mailSender;
 
     @Value("${spring.mail.username}")
-    private String Sender; 
+    private String Sender;
 
     public EmailService(JavaMailSender mailSender) {
         this.mailSender = mailSender;
     }
 
-    public void send(String to, String subject, String text) {
+    public void send(
+            //String to, String subject, String text
+            emailDto dto
+    ) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(Sender);
-        message.setTo(to);
-        message.setSubject(subject);
-        message.setText(text);
+        message.setTo(dto.getEmailDestino());
+        message.setSubject(dto.getAsunto());
+        message.setText(dto.getTexto());
         mailSender.send(message);
+        
     }
 
-    public void sendWithAttach(String to, String subject, String text//, //String attachName
-    /*InputStreamSource inputStream*/) throws MessagingException {
+    public void sendWithAttach( emailDto dto
+            //String to, String subject, String text//, //String attachName
+    /*InputStreamSource inputStream*/
+    ) throws MessagingException {
 
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
         helper.setFrom(Sender);
-        helper.setTo(to);
-        helper.setSubject(subject);
-        helper.setText(text, true);
+        helper.setTo(dto.getEmailDestino());
+        helper.setSubject(dto.getAsunto());
+        helper.setText(dto.getTexto(), true);
         //helper.addAttachment(attachName, inputStream);
         mailSender.send(message);
+
+        
     }
 
 }
