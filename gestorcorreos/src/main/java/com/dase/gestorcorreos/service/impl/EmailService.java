@@ -5,7 +5,7 @@
  */
 package com.dase.gestorcorreos.service.impl;
 
-import com.dase.gestorcorreos.dto.emailDto;
+import com.dase.gestorcorreos.dto.EmailDto;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Value;
@@ -32,7 +32,7 @@ public class EmailService {
 
     public void send(
             //String to, String subject, String text
-            emailDto dto
+            EmailDto dto
     ) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(Sender);
@@ -43,7 +43,7 @@ public class EmailService {
         
     }
 
-    public void sendWithAttach( emailDto dto
+    public void sendWithAttach( EmailDto dto
             //String to, String subject, String text//, //String attachName
     /*InputStreamSource inputStream*/
     ) throws MessagingException {

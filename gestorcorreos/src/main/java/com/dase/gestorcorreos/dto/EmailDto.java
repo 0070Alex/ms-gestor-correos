@@ -9,22 +9,20 @@ package com.dase.gestorcorreos.dto;
  *
  * @author Alexander Elias
  */
-public class emailDto {
+public class EmailDto {
     
     String emailDestino;
     String asunto;
     String texto;
 
-    public emailDto() {
+    public EmailDto() {
     }
 
-    public emailDto(String emailDestino, String asunto, String texto) {
+    public EmailDto(String emailDestino, String asunto, String texto) {
         this.emailDestino = emailDestino;
         this.asunto = asunto;
         this.texto = texto;
     }
-    
-    
 
     public String getEmailDestino() {
         return emailDestino;
@@ -49,7 +47,10 @@ public class emailDto {
     public void setTexto(String texto) {
         this.texto = texto;
     }
+
     
+   
+   
     
     
 }
