@@ -34,7 +34,7 @@ public class EmailController {
         return "Email enviado con éxito";
     }
 
-    @PostMapping("emailWithHtml")
+    @PostMapping("emailHtml")
     @ApiOperation(value = "Envia un correo solicitando el destinatario, asunto y el texto, puede llevar texto en formato HTML")
     public String emailHtml(@RequestBody EmailDto entity, BindingResult result, @RequestHeader(name = "Accept-Languaje", required = false) Locale locale) throws MessagingException {
         this.email.sendWithAttach(entity);
