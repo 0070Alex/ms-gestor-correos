@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="https://app-organizador-tareas.herokuapp.com")
 @RestController
 @RequestMapping("/email")
 public class EmailController {
